@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
-
 .navbar {
     padding: 1rem;
     background-color: #222;
@@ -9,6 +7,8 @@
     align-items: center;
     flex-direction: column;
     border-radius: 10px;
+    z-index: 99;
+    position: relative;
   
     .nav-links {
       display: flex;
@@ -19,10 +19,6 @@
         color: white;
         text-decoration: none;
         padding: 0.5rem;
-        font-family: "Josefin Sans", sans-serif;
-        font-style: normal;
-        font-weight: 600;
-        font-optical-sizing: auto;
   
         &.active {
           border-bottom: 2px solid #4fc3f7;

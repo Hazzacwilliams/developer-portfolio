@@ -1,0 +1,55 @@
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+}
+
+.skills-container {
+    padding: 4rem 2rem;
+    text-align: center;
+
+    h2 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .skill-block {
+        background: #f9f9f9;
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+
+        h3 {
+            margin-bottom: 1rem;
+            color: #4fc3f7;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+
+            li {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                margin: 0.5rem 0;
+
+                fa-icon {
+                    color: #4fc3f7;
+                }
+
+                &:hover {
+                    cursor: pointer;
+                    animation: bounce 0.5s;
+                }
+            }
+
+        }
+    }
+}

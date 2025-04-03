@@ -1,1 +1,26 @@
-<p>contact works!</p>
+<section class="contact-container">
+    <h2>Get In Touch</h2>
+
+    <form (ngSubmit)="submitForm(contactForm)" #contactForm="ngForm">
+        <input type="text" name="name" ngModel placeholder="Your Name" required />
+        <input type="email" name="email" ngModel placeholder="Your Email" required />
+        <textarea name="message" ngModel rows="5" placeholder="Your Message" required></textarea>
+
+        <button type="submit">Send Message</button>
+
+        <p *ngIf="success" class="success-message">Message sent! ✅</p>
+    </form>
+
+
+    <div class="contact-links">
+        <a href="https://github.com/Hazzacwilliams" target="_blank">
+            <fa-icon [icon]="faGithub"></fa-icon>GitHub
+        </a>
+        <a href="https://linkedin.com/in/harry-williams-13754813b/" target="_blank">
+            <fa-icon [icon]="faLinkedin"></fa-icon>LinkedIn
+        </a>
+        <a href="mailto:hazzacwilliams@gmail.com">
+            <fa-icon [icon]="faEnvelope"></fa-icon>Email Me
+        </a>
+    </div>
+</section>
