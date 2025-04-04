@@ -55,4 +55,53 @@
       }
     }
   }
+
+  
+  .certifications {
+    margin-top: 2rem;
+  
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #222;
+    }
+  
+    .cert-card {
+      display: flex;
+      align-items: center;
+      background: #f9f9f9;
+      border-radius: 12px;
+      padding: 1rem 1.5rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      gap: 1rem;
+  
+      img {
+        width: 50px;
+        height: auto;
+        flex-shrink: 0;
+      }
+  
+      .cert-text {
+        display: flex;
+        flex-direction: column;
+  
+        p {
+          margin: 0;
+          font-size: 0.95rem;
+        }
+  
+        a {
+          margin-top: 0.4rem;
+          font-size: 0.9rem;
+          color: #4fc3f7;
+          font-weight: 600;
+          text-decoration: none;
+  
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
   

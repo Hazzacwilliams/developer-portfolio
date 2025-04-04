@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { Title } from '@angular/platform-browser';
@@ -10,7 +11,7 @@ import { ParticlesWrapperModule } from '../../particles-wrapper/particles-wrappe
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterModule, ParticlesWrapperModule],
+  imports: [RouterModule, CommonModule, ParticlesWrapperModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
   animations: [
@@ -132,7 +133,7 @@ export class HomeComponent {
             },
           ]
         }
-        
+
       },
       size: {
         value: { min: 5, max: 15 },
@@ -140,6 +141,20 @@ export class HomeComponent {
     },
     detectRetina: true,
   };
+
+  roles = [
+    "Full-Stack Web Developer",
+    "Frontend Developer",
+    "Backend Developer",
+    "React Developer",
+    "Angular Enthusiast",
+    "Node.js Engineer"
+  ];
+
+  currentTextArray: string[] = [];
+  private roleIndex = 0;
+  currentTextKey = 0;
+  showRoleText = true;
 
   constructor(private titleService: Title, private readonly ngParticlesService: NgParticlesService) {
     this.titleService.setTitle('Home | Harry Dev');
@@ -149,7 +164,21 @@ export class HomeComponent {
     this.ngParticlesService.init(async (engine) => {
       await loadSlim(engine);
     });
+    this.updateRole();
+    setInterval(() => this.updateRole(), 4000);
   }
+
+  updateRole() {
+    this.showRoleText = false;
+  
+    setTimeout(() => {
+      const role = this.roles[this.roleIndex];
+      this.currentTextArray = role.split("");
+      this.roleIndex = (this.roleIndex + 1) % this.roles.length;
+      this.showRoleText = true; // re-triggers DOM render
+    }, 50); // short delay allows Angular to destroy DOM
+  }
+  
 
   particlesLoaded(container: Container): void {
     console.log(container);

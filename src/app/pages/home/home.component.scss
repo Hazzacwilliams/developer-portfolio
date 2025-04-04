@@ -9,7 +9,7 @@
   padding: 4rem 2rem;
   text-align: center;
   overflow: hidden;
-  
+
 
   .particles-background {
     position: absolute;
@@ -26,40 +26,106 @@
     z-index: 1;
     width: 90%;
     max-width: 600px;
-    margin: 0 auto; // 👈 centers it horizontally
+    margin: 0 auto; 
     padding: 0;
     background: white;
     border-radius: 10px;
-    box-shadow: 0 0 30px rgba(255,255,255,0.8); // subtle fade/masking effect
-  
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.8); 
     text-align: center;
-  
+
     h1 {
       font-size: 3rem;
       margin-bottom: 1rem;
     }
-  
+
     h2 {
       font-size: 2rem;
       margin-bottom: 1rem;
     }
-  
+
     p {
       font-size: 1.2rem;
       margin-bottom: 1rem;
     }
-  
+
     .cta-btn {
       background-color: #4fc3f7;
       color: white;
       padding: 0.75rem 1.5rem;
       border-radius: 6px;
       text-decoration: none;
-  
+
       &:hover {
         background-color: #29b6f6;
       }
     }
+
+    .dynamic-role-wrapper {
+      height: 2.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .dynamic-role {
+      display: inline-block;
+      font-size: 1.5rem;
+      font-weight: 500;
+      overflow: hidden;
+      z-index: 99;
+
+      span:not(.cursor) {
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(-20px);
+        animation: fallIn 0.6s ease-out forwards;
+      }
+
+      span.space {
+        width: 0.5em; 
+        display: inline-block;
+      }
+
+      @keyframes fallIn {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    }
   }
-  
-}  
+}
+
+.cursor {
+  display: inline-block;
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+    color: #4fc3f7;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+.wave {
+  display: inline-block;
+  animation: waveAnimation 2.5s infinite;
+  transform-origin: 70% 70%;
+}
+
+@keyframes waveAnimation {
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  30% { transform: rotate(14deg); }
+  40% { transform: rotate(-4deg); }
+  50% { transform: rotate(10deg); }
+  60% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
